@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deep Link Test</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+
+    button {
+      padding: 14px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .open-btn {
+      background: black;
+      color: white;
+    }
+
+    .store-btn {
+      background: #007aff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>iOS Deep Link Test</h1>
+
+  <p>
+    Tap button below to open app using custom URL scheme.
+  </p>
+
+  <button class="open-btn" onclick="openApp()">
+    Open App
+  </button>
+
+  <button class="store-btn" onclick="openStore()">
+    Open App Store
+  </button>
+
+  <script>
+    // CHANGE THESE
+    const DEEP_LINK = "np.com.nepalipatro://post/123";
+    const APP_STORE =
+      "https://apps.apple.com/app/id123456789";
+
+    function openApp() {
+
+      // Try opening app
+      window.location.href = DEEP_LINK;
+
+      // Fallback to App Store after delay
+      setTimeout(() => {
+        window.location.href = APP_STORE;
+      }, 1500);
+    }
+
+    function openStore() {
+      window.location.href = APP_STORE;
+    }
+  </script>
+
+</body>
+</html>
